@@ -44,8 +44,7 @@
         <div class="top_bar_right flex flex-center no-wrap col-3">
           <div class="search_box">
             <q-input
-              class="gt-sm"
-              v-model="search"
+              class="gt-xs"
               filled
               dense
               type="search"
@@ -61,7 +60,7 @@
 
           <div class="menu_box">
             <q-btn
-              class="lt-md"
+              class="lt-sm"
               flat
               dense
               round
@@ -103,6 +102,7 @@
               anchor="center right"
               self="center left"
               class="bg-grey-8 text-body2"
+              v-if="$q.screen.width > 600"
               :offset="[10, 10]"
             >
               Translate
@@ -113,7 +113,7 @@
     </q-toolbar>
   </q-header>
 
-  <q-drawer behavior="mobile" side="right" v-model="leftDrawerOpen" show-if-above bordered>
+  <q-drawer side="right" v-model="leftDrawerOpen" show-if-above bordered class="my-drawer" overlay>
     <q-list>
       <q-item-label header> Essential Links </q-item-label>
 
@@ -128,12 +128,15 @@
 }
 .top_bar {
   height: $top_bar_height;
-}
+  border-width: 0 0 1px;
+  border-color: rgba(237, 239, 241, 0.2);
+  border-style: solid;
 
-.logo_box {
-  .main_logo {
-    padding-left: 10px;
-    min-width: 70px;
+  .logo_box {
+    .main_logo {
+      padding-left: 10px;
+      min-width: 70px;
+    }
   }
 }
 
@@ -143,6 +146,7 @@
     > li {
       padding: 0 20px;
       letter-spacing: -0.3px;
+      font-size: 1.3vw;
     }
   }
 }
@@ -155,6 +159,12 @@
 :deep(.q-field__label) {
   font-size: 18px;
   letter-spacing: -1px;
+}
+
+/**사이드 바(q-drawer) 나타나고 사라지는 효과 적용 */
+:deep(.q-drawer),
+:deep(.q-drawer__backdrop) {
+  transition: all 0.7s cubic-bezier(0.73, 0.17, 0.61, 1.01) !important;
 }
 
 .menu-wrapper {
@@ -186,20 +196,34 @@
   padding-top: 8px; /* 버튼과 메뉴 사이 마우스 통로 확보 */
 }
 
-.q-focus-helper:hover {
-  opacity: 0 !important;
-  background-color: transparent !important;
-}
-
-.q-focus-helper--focus {
-  background: red !important;
-  opacity: 0.2 !important;
+/**모바일 사이즈 정의 */
+@media (max-width: 600px) {
+  .logo_box {
+    justify-content: start;
+  }
+  .top_bar_right {
+    justify-content: end;
+  }
+  .main_menu {
+    display: none;
+  }
+  .top_bar {
+    > div {
+      justify-content: space-between;
+    }
+  }
+  .top_bar {
+    border: none;
+  }
 }
 </style>
 
 <script setup>
 import EssentialLink from 'components/EssentialLink.vue'
 import { ref } from 'vue'
+import { useQuasar } from 'quasar'
+
+const $q = useQuasar()
 
 const linksList = [
   {

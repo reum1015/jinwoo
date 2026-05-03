@@ -1,1 +1,11 @@
 // app global css
+/* 드로어가 열리고 닫히는 전체 속도 조절 */
+.q-drawer {
+  /* 기본값은 보통 300ms(0.3s) 내외입니다. 이를 1초(1s)로 늦추는 예시 */
+  transition: transform 1s cubic-bezier(0.25, 0.8, 0.5, 1) !important;
+}
+
+/* overlay 모드일 때 배경(backrop)이 어두워지는 속도도 맞추고 싶다면 */
+.q-body--drawer-open .q-layout__backdrop {
+  transition: background-color 1s !important;
+}
