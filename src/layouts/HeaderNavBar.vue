@@ -113,7 +113,7 @@
     </q-toolbar>
   </q-header>
 
-  <q-drawer side="right" v-model="leftDrawerOpen" show-if-above bordered class="my-drawer" overlay>
+  <q-drawer side="right" v-model="leftDrawerOpen" bordered overlay rounded-borders>
     <q-list>
       <q-item-label header> Essential Links </q-item-label>
 
