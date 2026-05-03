@@ -12,6 +12,10 @@
 // to match your app's branding.
 // Tip: Use the "Theme Builder" on Quasar's documentation website.
 
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
+$typography-font-family: 'Noto Sans', 'Noto Sans KR', sans-serif !default;
+
 $primary: rgb(230 230 219 / 0.37);
 $secondary: #26a69a;
 $accent: #9c27b0;
@@ -24,4 +28,6 @@ $negative: #c10015;
 $info: #31ccec;
 $warning: #f2c037;
 
+//Coustom variable
 
+$top_bar_height: 80px;
