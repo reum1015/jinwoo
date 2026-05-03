@@ -99,9 +99,8 @@
               </q-menu>
             </q-btn>
             <q-tooltip
-              anchor="center right"
-              self="center left"
-              class="bg-grey-8 text-body2"
+              anchor="top middle" self="center middle"
+              class="bg-grey-8 text-body3"
               v-if="$q.screen.width > 600"
               :offset="[10, 10]"
             >
