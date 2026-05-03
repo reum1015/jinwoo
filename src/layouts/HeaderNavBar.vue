@@ -83,7 +83,7 @@
               fab
               color="black"
             >
-              <q-menu fit>
+              <q-menu fit transition-show="rotate" transition-hide="rotate">
                 <q-list style="min-width: 100px" dense>
                   <q-item clickable>
                     <q-item-section>English</q-item-section>
@@ -113,7 +113,7 @@
     </q-toolbar>
   </q-header>
 
-  <q-drawer side="right" v-model="leftDrawerOpen" bordered overlay rounded-borders>
+  <q-drawer side="right" v-model="leftDrawerOpen" bordered overlay rounded-borders :animation-duration="2000">
     <q-list>
       <q-item-label header> Essential Links </q-item-label>
 
