@@ -11,6 +11,7 @@ const routes = [
   {
     path: '/user',
     component: UserTest,
+    name: 'User',
     children: [
       {
         path: 'about',
@@ -21,7 +22,7 @@ const routes = [
 
   {
     path: '/test',
-    component: () => import('../pages/TestPage.vue')
+    component: () => import('../pages/TestPage.vue'),
   },
 
   // Always leave this as last one,
