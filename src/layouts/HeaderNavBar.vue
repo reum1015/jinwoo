@@ -9,10 +9,19 @@
         </div>
         <div class="flex flex-center col-6 main_menu">
           <ul class="flex flex-center q-pa-none q-ma-none text-h6 text-bold full-height no-wrap">
-            <li>Home</li>
-            <li>About</li>
-            <li>Product</li>
-            <li>Contact</li>
+            <li><router-link to="/home">Home</router-link>  </li>
+            <li class="items"><q-btn
+              flat
+              no-caps
+              label="Products"
+              color="red"
+              class="text-weight-medium"
+              :to="{ name: 'Products' }"
+              @mouseenter="menuProducts = true"
+              @mouseleave="menuProducts = false"
+            /> </li>
+            <li><router-link to="/product">Product</router-link> </li>
+            <li><router-link to="/contact">Contact</router-link> </li>
           </ul>
 
           <!-- -->
@@ -142,6 +151,7 @@
 .main_menu {
   > ul {
     list-style-type: none;
+    text-decoration: none;
     > li {
       padding: 0 20px;
       letter-spacing: -0.3px;
