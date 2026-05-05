@@ -12,7 +12,7 @@ import HeaderNavBar from 'layouts/HeaderNavBar.vue'
 </script>
 <style lang="scss">
 .main_layout {
-  background-image: url('/bg_04.jpg');
+  background-image: url('/bg_03.jpg');
   background-size: cover;
 }
 </style>
