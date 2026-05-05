@@ -10,7 +10,6 @@
 
       <q-item clickable to="/Vision" class="q_item">
         <q-item-section side>
-          <q-icon name="remove_red_eye" class="q_item_icon" />
         </q-item-section>
         <q-item-section>Management&nbsp;&nbsp;Philosophy</q-item-section>
       </q-item>
