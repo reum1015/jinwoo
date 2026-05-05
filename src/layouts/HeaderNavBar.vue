@@ -11,7 +11,7 @@
         <!-- 로고 End.-->
         <!--메인 메뉴 -->
         <div class="flex flex-center col-6 main_menu full-height">
-          <ul class="row flex-center q-pa-none q-ma-none text-h6 text-bold full-height no-wrap">
+          <ul class="row flex-center q-pa-none q-ma-none text-h6 text-bold full-height">
             <li class="col">
               <q-btn
                 flat
@@ -22,7 +22,10 @@
                 :ripple="false"
               />
             </li>
-            <li class="col">
+            <li class="col list_item" @mouseenter="isAbout = true" @mouseleave="isAbout = false">
+              <transition name="slide-fade">
+                <AboutDropDown v-show="isAbout"></AboutDropDown>
+              </transition>
               <q-btn
                 flat
                 no-caps
@@ -42,7 +45,10 @@
                 :ripple="false"
               />
             </li>
-            <li class="col">
+            <li class="col" @mouseenter="isContact = true" @mouseleave="isContact = false">
+              <transition name="slide-fade">
+                <ContactDropDown v-show="isContact"></ContactDropDown>
+              </transition>
               <q-btn
                 flat
                 no-caps
@@ -53,35 +59,8 @@
               />
             </li>
           </ul>
-
-          <!-- -->
-          <div class="q-pa-md" style="display: none">
-            <div class="menu-wrapper">
-              <!-- 버튼 -->
-              <q-btn color="primary" label="부드러운 메뉴" />
-
-              <!-- 애니메이션이 적용될 메뉴 영역 -->
-              <div class="custom-menu-animated">
-                <q-list bordered class="bg-grey-5 shadow-2 rounded-borders">
-                  <q-item clickable v-ripple>
-                    <q-item-section>프로필 수정</q-item-section>
-                  </q-item>
-                  <q-item clickable v-ripple>
-                    <q-item-section>설정</q-item-section>
-                  </q-item>
-                  <q-separator />
-                  <q-item clickable v-ripple class="text-red">
-                    <q-item-section>로그아웃</q-item-section>
-                  </q-item>
-                </q-list>
-              </div>
-            </div>
-          </div>
-
-          <!-- -->
         </div>
         <!--메인 메뉴  End.-->
-
         <!-- 검색, 언어선택 -->
         <div class="top_bar_right flex flex-center no-wrap col-3 full-height">
           <div class="search_box">
@@ -152,10 +131,12 @@
             </q-tooltip>
           </div>
         </div>
+        <!-- 검색, 언어선택 End. -->
       </div>
-      <!-- 검색, 언어선택 End. -->
+      <!--row End. -->
     </q-toolbar>
   </q-header>
+
   <q-drawer
     side="right"
     v-model="leftDrawerOpen"
@@ -194,16 +175,21 @@
 .main_menu {
   > ul {
     display: flex;
-    list-style-type: none;
-    text-decoration: none;
     padding-right: 3rem;
     > li {
       display: flex;
       height: 100%;
       padding: 5px 20px 0px 20px;
       letter-spacing: -0.3px;
+      position: relative;
+
+      &:hover .menu_items {
+        color: $mainColor;
+      }
     }
   }
+
+  /** 메뉴 호버시 메뉴색 변경 */
   .menu_items {
     height: 100%;
     font-size: 20px;
@@ -213,6 +199,7 @@
     transition: color 0.4s ease-in-out;
   }
 }
+
 /** <q-btn> hover 배경색 변경 */
 :deep(.menu_items) {
   &:hover .q-focus-helper {
@@ -220,17 +207,21 @@
     opacity: 0 !important;
   }
 }
-:deep(.menu_items) {
-  &:hover {
-    color: dodgerblue;
+// :deep(.list_item) {
+//   &:hover .menu_items {
+//     color: dodgerblue;
+//   }
+// }
+
+/** 메뉴바 오른쪽 영역 */
+.top_bar_right {
+  padding-right: 20px;
+  /** 검색창 너비 */
+  .search_box {
+    max-width: 200px;
   }
 }
-
-.search_box {
-  max-width: 200px;
-}
-
-/** search box input label style  */
+/** 검색창 텍스트 변경  */
 :deep(.q-field__label) {
   font-size: 14px;
   letter-spacing: -1px;
@@ -242,61 +233,66 @@
   transition: all 0.5s cubic-bezier(0.73, 0.17, 0.61, 1.01) !important;
 }
 
-.menu-wrapper {
-  position: relative;
-  display: inline-block;
+/* --- 여기서부터 핵심 애니메이션 --- */
 
-  /* 1. 호버 시 하위 메뉴 스타일 변경 */
-  &:hover .custom-menu-animated {
-    opacity: 1;
-    visibility: visible;
-    transform: translateX(0); /* 제자리로 이동 */
-  }
+/* 나타날 때와 사라질 때의 속도/곡선 정의 */
+.slide-fade-enter-active {
+  transition: all 0.3s ease-out;
 }
 
-.custom-menu-animated {
-  /* 2. 초기 상태: 숨김 및 위치 아래로 살짝 내림 */
+.slide-fade-leave-active {
+  transition: all 0.2s cubic-bezier(1, 0.5, 0.8, 1);
+}
+
+/* 시작 상태와 끝 상태 (살짝 아래에서 위로 올라오며 투명도 조절) */
+.slide-fade-enter-from,
+.slide-fade-leave-to {
+  transform: translateY(10px);
   opacity: 0;
-  visibility: hidden;
-  transform: translateX(50px);
-
-  /* 3. 부드러운 전환 효과 설정 */
-  transition: all 0.3s ease;
-
-  position: absolute;
-  top: 100%;
-  left: 0;
-  min-width: 160px;
-  z-index: 1000;
-  padding-top: 8px; /* 버튼과 메뉴 사이 마우스 통로 확보 */
 }
 
-/**모바일 사이즈 정의 */
+/**태블릿 사이즈 */
+@media (max-width: 1024px) {
+  .menu_items {
+    font-size: 14px !important;
+  }
+
+  .top_bar .logo_box {
+    padding-right: 0px;
+  }
+}
+
+/**모바일 사이즈 */
 @media (max-width: 600px) {
-  .logo_box {
-    justify-content: start;
-  }
-  .top_bar_right {
-    justify-content: end;
-  }
   .main_menu {
     display: none;
   }
   .top_bar {
+    border: none;
     > div {
       justify-content: space-between;
     }
-  }
-  .top_bar {
-    border: none;
+    .logo_box {
+      justify-content: start;
+    }
+    .top_bar_right {
+      justify-content: end;
+      padding-right: 0px;
+    }
   }
 }
 </style>
 
 <script setup>
-import EssentialLink from 'components/EssentialLink.vue'
 import { ref } from 'vue'
+import EssentialLink from 'src/components/EssentialLink.vue'
+import AboutDropDown from 'src/components/AboutDropDown.vue'
+import ContactDropDown from 'src/components/ContactDropDown.vue'
+
 import { useQuasar } from 'quasar'
+
+const isAbout = ref(false)
+const isContact = ref(false)
 
 const $q = useQuasar()
 
@@ -308,7 +304,6 @@ const linksList = [
     link: 'https://quasar.dev',
   },
 ]
-
 const leftDrawerOpen = ref(false)
 
 function toggleLeftDrawer() {
