@@ -53,6 +53,9 @@ export default [
 
     // add your custom rules here
     rules: {
+      // 사용하지 않는 변수 에러를 완전히 끕니다.
+      'no-unused-vars': 'warn',
+
       'prefer-promise-reject-errors': 'off',
 
       // allow debugger during development only

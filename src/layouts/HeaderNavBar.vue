@@ -35,7 +35,10 @@
                 :ripple="false"
               />
             </li>
-            <li class="col">
+            <li class="col" @mouseenter="isProduct = true" @mouseleave="isProduct = true">
+              <transition name="slide-fade">
+                <ProductDropDown v-show="isProduct"></ProductDropDown>
+              </transition>
               <q-btn
                 flat
                 no-caps
@@ -152,6 +155,36 @@
     </q-list>
   </q-drawer>
 </template>
+
+<script setup>
+import { ref } from 'vue'
+import EssentialLink from 'src/components/EssentialLink.vue'
+import AboutDropDown from 'src/components/dropDownMenus/AboutDropDown.vue'
+import ContactDropDown from 'src/components/dropDownMenus/ContactDropDown.vue'
+import ProductDropDown from 'src/components/dropDownMenus/ProductDropDown.vue'
+
+import { useQuasar } from 'quasar'
+
+const isAbout = ref(false)
+const isContact = ref(false)
+const isProduct = ref(true)
+
+const $q = useQuasar()
+
+const linksList = [
+  {
+    title: 'Docs',
+    caption: 'quasar.dev',
+    icon: 'school',
+    link: 'https://quasar.dev',
+  },
+]
+const leftDrawerOpen = ref(false)
+
+function toggleLeftDrawer() {
+  leftDrawerOpen.value = !leftDrawerOpen.value
+}
+</script>
 
 <style scoped lang="scss">
 .top_bar_wrapper {
@@ -282,31 +315,3 @@
   }
 }
 </style>
-
-<script setup>
-import { ref } from 'vue'
-import EssentialLink from 'src/components/EssentialLink.vue'
-import AboutDropDown from 'src/components/AboutDropDown.vue'
-import ContactDropDown from 'src/components/ContactDropDown.vue'
-
-import { useQuasar } from 'quasar'
-
-const isAbout = ref(false)
-const isContact = ref(false)
-
-const $q = useQuasar()
-
-const linksList = [
-  {
-    title: 'Docs',
-    caption: 'quasar.dev',
-    icon: 'school',
-    link: 'https://quasar.dev',
-  },
-]
-const leftDrawerOpen = ref(false)
-
-function toggleLeftDrawer() {
-  leftDrawerOpen.value = !leftDrawerOpen.value
-}
-</script>
