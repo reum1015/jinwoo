@@ -35,7 +35,7 @@
                 :ripple="false"
               />
             </li>
-            <li class="col" @mouseenter="isProduct = true" @mouseleave="isProduct = true">
+            <li class="col" @mouseenter="isProduct = true" @mouseleave="isProduct = false">
               <transition name="slide-fade">
                 <ProductDropDown v-show="isProduct"></ProductDropDown>
               </transition>
@@ -167,7 +167,7 @@ import { useQuasar } from 'quasar'
 
 const isAbout = ref(false)
 const isContact = ref(false)
-const isProduct = ref(true)
+const isProduct = ref(false)
 
 const $q = useQuasar()
 
@@ -208,8 +208,10 @@ function toggleLeftDrawer() {
 .main_menu {
   > ul {
     display: flex;
-    padding-right: 3rem;
+    //padding-right: 3rem;
+    width: 70%;
     > li {
+      width: 100%;
       display: flex;
       height: 100%;
       padding: 5px 20px 0px 20px;

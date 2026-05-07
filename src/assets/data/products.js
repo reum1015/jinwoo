@@ -12,8 +12,8 @@ export const product = [
 // 1. 우선 id 없이 데이터만 배열로 만듭니다.
 const rawData = [
   { name: 'Insulation Kit', imgName: 'Spiral Wound Gasket.png' },
-  { name: 'Gasket Item 2', imgName: 'gasket003.jpg' },
-  { name: 'Gasket Item 2', imgName: 'gasket004.jpg' },
+  { name: 'Insulation Kit', imgName: 'gasket003.jpg' },
+  { name: 'Metal O-Ring Gasket', imgName: 'gasket004.jpg' },
   { name: 'Gasket Item 2', imgName: 'gasket005.jpg' },
   { name: 'Gasket Item 2', imgName: 'gasket006.jpg' },
   { name: 'Gasket Item 2', imgName: 'gasket003.jpg' },
@@ -21,7 +21,10 @@ const rawData = [
   { name: 'Gasket Item 2', imgName: 'gasket003.jpg' },
   { name: 'Gasket Item 2', imgName: 'gasket003.jpg' },
   { name: 'Gasket Item 2', imgName: 'gasket003.jpg' },
-  { name: 'Gasket Item 2', imgName: 'gasket003.jpg' },
+  { name: 'Gasket Item 2', imgName: 'gasket004.jpg' },
+  { name: 'Gasket Item 2', imgName: 'gasket005.jpg' },
+  { name: 'Gasket Item 2', imgName: 'gasket006.jpg' },
+  { name: 'Spiral Wound Gasket', imgName: 'Spiral Wound Gasket.png' },
   // ... 나머지 11개 입력
 ]
 
