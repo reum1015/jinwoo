@@ -3,17 +3,19 @@
     <q-toolbar class="top_bar flex justify-between align-center">
       <div class="row flex-center no-wrap full-height" style="width: 100%">
         <!-- 로고 -->
-        <div class="logo_box flex flex-center col-3 full-height">
+        <div class="logo_box flex flex-center col-3 col-md-3 full-height">
           <router-link to="/">
             <q-img src="~assets/imgs/logo/fedex.png" class="main_logo flex align-center" alt="logo"
           /></router-link>
         </div>
         <!-- 로고 End.-->
         <!--메인 메뉴 -->
-        <div class="flex flex-center col-6 main_menu full-height">
+        <div class="flex flex-center col-6 col-md-6 main_menu full-height">
           <ul class="row flex-center q-pa-none q-ma-none text-h6 text-bold full-height">
             <li class="col">
               <q-btn
+                :color="$route.path === '/' ? 'primary' : 'white'"
+                :class="{ 'text-weight-bolder': $route.path === '/' }"
                 flat
                 no-caps
                 label="Home"
@@ -65,7 +67,7 @@
         </div>
         <!--메인 메뉴  End.-->
         <!-- 검색, 언어선택 -->
-        <div class="top_bar_right flex flex-center no-wrap col-3 full-height">
+        <div class="top_bar_right flex flex-center no-wrap col-3 col-md-3 full-height">
           <div class="search_box">
             <q-input
               class="gt-xs"
@@ -75,6 +77,7 @@
               label="search"
               bg-color="transparent"
               input-class="text-white"
+              color="white"
             >
               <template v-slot:append>
                 <q-icon name="search" />
@@ -187,8 +190,14 @@ function toggleLeftDrawer() {
 </script>
 
 <style scoped lang="scss">
+.active {
+  color: $mainColor;
+}
+
 .top_bar_wrapper {
   background-color: transparent;
+
+  color: dod;
 }
 .top_bar {
   height: $top_bar_height;
@@ -229,7 +238,7 @@ function toggleLeftDrawer() {
     height: 100%;
     font-size: 20px;
     letter-spacing: -1px;
-    font-weight: 600;
+    //font-weight: 600;
     color: $mainMenuColor;
     transition: color 0.4s ease-in-out;
   }
@@ -294,6 +303,16 @@ function toggleLeftDrawer() {
 
   .top_bar .logo_box {
     padding-right: 0px;
+  }
+
+  .main_menu {
+    ul {
+      margin-right: 100px;
+    }
+
+    &:last-child {
+      padding-left: 30px;
+    }
   }
 }
 

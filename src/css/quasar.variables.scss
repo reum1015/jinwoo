@@ -32,7 +32,9 @@
 
 $typography-font-family: 'Noto Sans', 'Noto Sans KR', sans-serif !default;
 
-$primary: rgb(230 230 219 / 0.37);
+$mainColor: #002efd;
+
+$primary: $mainColor;
 $secondary: #26a69a;
 $accent: #9c27b0;
 

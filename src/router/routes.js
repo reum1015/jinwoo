@@ -4,6 +4,7 @@ import CaTest from 'src/pages/CaTest.vue'
 const routes = [
   {
     path: '/',
+    name: 'home',
     component: () => import('layouts/MainLayout.vue'),
     children: [{ path: '', component: () => import('pages/IndexPage.vue') }],
   },
@@ -30,7 +31,6 @@ const routes = [
     component: () => import('../pages/ProductsPage.vue'),
     name: 'Products',
   },
-
 
   // Always leave this as last one,
   // but you can also remove it

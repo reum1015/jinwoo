@@ -46,10 +46,9 @@ import { products } from 'src/assets/data/products'
   font-family: 'Paperozi';
   font-size: 1rem;
   position: absolute;
+  left: 50%;
   top: 100%;
-  left: 20%;
-
-  transform: translate(-50%, 0);
+  transform: translate(-60%, 0);
   :last-child {
     //padding-bottom: 6px;
   }
