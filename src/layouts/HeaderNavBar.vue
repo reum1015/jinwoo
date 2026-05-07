@@ -1,147 +1,145 @@
 <template>
-  <q-header reveal class="top_bar_wrapper">
-    <q-toolbar class="top_bar flex justify-between align-center">
-      <div class="row flex-center no-wrap full-height" style="width: 100%">
-        <!-- 로고 -->
-        <div class="logo_box flex flex-center col-3 col-md-3 full-height">
-          <router-link to="/">
-            <q-img src="~assets/imgs/logo/fedex.png" class="main_logo flex align-center" alt="logo"
-          /></router-link>
-        </div>
-        <!-- 로고 End.-->
-        <!--메인 메뉴 -->
-        <div class="flex flex-center col-6 col-md-6 main_menu full-height">
-          <ul class="row flex-center q-pa-none q-ma-none text-h6 text-bold full-height">
-            <li class="col">
-              <q-btn
-                :color="$route.path === '/' ? 'primary' : 'white'"
-                :class="{ 'text-weight-bolder': $route.path === '/' }"
-                flat
-                no-caps
-                label="Home"
-                class="menu_items"
-                :to="{ name: 'Home' }"
-                :ripple="false"
-              />
-            </li>
-            <li class="col list_item" @mouseenter="isAbout = true" @mouseleave="isAbout = false">
-              <transition name="slide-fade">
-                <AboutDropDown v-show="isAbout"></AboutDropDown>
-              </transition>
-              <q-btn
-                flat
-                no-caps
-                label="About"
-                class="menu_items"
-                :to="{ name: 'About' }"
-                :ripple="false"
-              />
-            </li>
-            <li class="col" @mouseenter="isProduct = true" @mouseleave="isProduct = false">
-              <transition name="slide-fade">
-                <ProductDropDown v-show="isProduct"></ProductDropDown>
-              </transition>
-              <q-btn
-                flat
-                no-caps
-                label="Products"
-                class="menu_items"
-                :to="{ name: 'Products' }"
-                :ripple="false"
-              />
-            </li>
-            <li class="col" @mouseenter="isContact = true" @mouseleave="isContact = false">
-              <transition name="slide-fade">
-                <ContactDropDown v-show="isContact"></ContactDropDown>
-              </transition>
-              <q-btn
-                flat
-                no-caps
-                label="Contact"
-                class="menu_items"
-                :to="{ name: 'Contact' }"
-                :ripple="false"
-              />
-            </li>
-          </ul>
-        </div>
-        <!--메인 메뉴  End.-->
-        <!-- 검색, 언어선택 -->
-        <div class="top_bar_right flex flex-center no-wrap col-3 col-md-3 full-height">
-          <div class="search_box">
-            <q-input
-              class="gt-xs"
-              filled
-              dense
-              type="search"
-              label="search"
-              bg-color="transparent"
-              input-class="text-white"
-              color="white"
-            >
-              <template v-slot:append>
-                <q-icon name="search" />
-              </template>
-            </q-input>
-          </div>
-
-          <div class="menu_box">
-            <q-btn
-              class="lt-sm"
-              flat
-              dense
-              round
-              icon="menu"
-              aria-label="Menu"
-              @click="toggleLeftDrawer"
-            />
-          </div>
-
-          <div class="lang_box">
-            <q-btn
-              class="btn"
-              dense
-              icon="language"
-              aria-label="language"
-              bg-color="transparent"
-              flat
-              round
-              unelevated
-              fab
-              color="black"
-            >
-              <q-menu fit transition-show="rotate" transition-hide="rotate">
-                <q-list style="min-width: 100px" dense>
-                  <q-item clickable>
-                    <q-item-section>English</q-item-section>
-                  </q-item>
-                  <q-separator />
-                  <q-item clickable>
-                    <q-item-section>Korean</q-item-section>
-                  </q-item>
-                  <q-separator />
-                  <q-item clickable>
-                    <q-item-section>Chinese</q-item-section>
-                  </q-item>
-                </q-list>
-              </q-menu>
-            </q-btn>
-            <q-tooltip
-              anchor="top middle"
-              self="center middle"
-              class="bg-grey-8 text-body3"
-              v-if="$q.screen.width > 600"
-              :offset="[10, 10]"
-            >
-              Translate
-            </q-tooltip>
-          </div>
-        </div>
-        <!-- 검색, 언어선택 End. -->
+  <q-toolbar class="top_bar flex justify-between align-center">
+    <div class="row flex-center no-wrap full-height" style="width: 100%">
+      <!-- 로고 -->
+      <div class="logo_box flex flex-center col-3 col-md-3 full-height">
+        <router-link to="/">
+          <q-img src="~assets/imgs/logo/fedex.png" class="main_logo flex align-center" alt="logo"
+        /></router-link>
       </div>
-      <!--row End. -->
-    </q-toolbar>
-  </q-header>
+      <!-- 로고 End.-->
+      <!--메인 메뉴 -->
+      <div class="flex flex-center col-6 col-md-6 main_menu full-height">
+        <ul class="row flex-center q-pa-none q-ma-none text-h6 text-bold full-height">
+          <li class="col">
+            <q-btn
+              :color="$route.path === '/' ? 'primary' : 'white'"
+              :class="{ 'text-weight-bolder': $route.path === '/' }"
+              flat
+              no-caps
+              label="Home"
+              class="menu_items"
+              :to="{ name: 'Home' }"
+              :ripple="false"
+            />
+          </li>
+          <li class="col list_item" @mouseenter="isAbout = true" @mouseleave="isAbout = false">
+            <transition name="slide-fade">
+              <AboutDropDown v-show="isAbout"></AboutDropDown>
+            </transition>
+            <q-btn
+              flat
+              no-caps
+              label="About"
+              class="menu_items"
+              :to="{ name: 'About' }"
+              :ripple="false"
+            />
+          </li>
+          <li class="col" @mouseenter="isProduct = true" @mouseleave="isProduct = false">
+            <transition name="slide-fade">
+              <ProductDropDown v-show="isProduct"></ProductDropDown>
+            </transition>
+            <q-btn
+              flat
+              no-caps
+              label="Products"
+              class="menu_items"
+              :to="{ name: 'Products' }"
+              :ripple="false"
+            />
+          </li>
+          <li class="col" @mouseenter="isContact = true" @mouseleave="isContact = false">
+            <transition name="slide-fade">
+              <ContactDropDown v-show="isContact"></ContactDropDown>
+            </transition>
+            <q-btn
+              flat
+              no-caps
+              label="Contact"
+              class="menu_items"
+              :to="{ name: 'Contact' }"
+              :ripple="false"
+            />
+          </li>
+        </ul>
+      </div>
+      <!--메인 메뉴  End.-->
+      <!-- 검색, 언어선택 -->
+      <div class="top_bar_right flex flex-center no-wrap col-3 col-md-3 full-height">
+        <div class="search_box">
+          <q-input
+            class="gt-xs"
+            filled
+            dense
+            type="search"
+            label="search"
+            bg-color="transparent"
+            input-class="text-white"
+            color="white"
+          >
+            <template v-slot:append>
+              <q-icon name="search" />
+            </template>
+          </q-input>
+        </div>
+
+        <div class="menu_box">
+          <q-btn
+            class="lt-sm"
+            flat
+            dense
+            round
+            icon="menu"
+            aria-label="Menu"
+            @click="toggleLeftDrawer"
+          />
+        </div>
+
+        <div class="lang_box">
+          <q-btn
+            class="btn"
+            dense
+            icon="language"
+            aria-label="language"
+            bg-color="transparent"
+            flat
+            round
+            unelevated
+            fab
+            color="black"
+          >
+            <q-menu fit transition-show="rotate" transition-hide="rotate">
+              <q-list style="min-width: 100px" dense>
+                <q-item clickable>
+                  <q-item-section>English</q-item-section>
+                </q-item>
+                <q-separator />
+                <q-item clickable>
+                  <q-item-section>Korean</q-item-section>
+                </q-item>
+                <q-separator />
+                <q-item clickable>
+                  <q-item-section>Chinese</q-item-section>
+                </q-item>
+              </q-list>
+            </q-menu>
+          </q-btn>
+          <q-tooltip
+            anchor="top middle"
+            self="center middle"
+            class="bg-grey-8 text-body3"
+            v-if="$q.screen.width > 600"
+            :offset="[10, 10]"
+          >
+            Translate
+          </q-tooltip>
+        </div>
+      </div>
+      <!-- 검색, 언어선택 End. -->
+    </div>
+    <!--row End. -->
+  </q-toolbar>
 
   <q-drawer
     side="right"
@@ -194,11 +192,6 @@ function toggleLeftDrawer() {
   color: $mainColor;
 }
 
-.top_bar_wrapper {
-  background-color: transparent;
-
-  color: dod;
-}
 .top_bar {
   height: $top_bar_height;
   border-width: 0 0 1px;
