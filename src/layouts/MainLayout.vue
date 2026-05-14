@@ -9,17 +9,34 @@
     <q-page-container class="main-page-container">
       <router-view />
     </q-page-container>
+
+    <q-page-scroller
+      position="bottom-right"
+      :scroll-offset="300"
+    >
+    <q-btn
+      round
+      icon="arrow_upward"
+      color="grey-9"
+    text-color="white"
+    class="shadow-5"
+    style="opacity: 0.8"
+    />
+    </q-page-scroller>
   </q-layout>
 </template>
 
 <script setup>
 import HeaderNavBar from 'layouts/HeaderNavBar.vue'
 
-import { ref, computed } from 'vue'
-import { useRoute } from 'vue-router'
+import {computed, ref} from 'vue'
+import {useRoute} from 'vue-router'
 
 const route = useRoute()
 const isScrolled = ref(false)
+
+//현재 페이지가 root('/')인지 아닌지 판별
+console.log(route.path);
 
 // 스크롤 위치 감지 함수
 const onScroll = (info) => {
@@ -32,10 +49,10 @@ const headerClass = computed(() => {
 
   if (isMain) {
     // 메인 페이지일 때: 스크롤 여부에 따라 투명 또는 회색
-    return isScrolled.value ? 'bg-grey-9-transparent text-black' : 'bg-transparent text-red'
+    return isScrolled.value ? 'bg-grey-9-transparent text-yellow-6' : 'bg-transparent text-grey-1'
   } else {
     // 메인 페이지가 아닐 때: 무조건 회색 고정
-    return 'bg-grey-9-transparent'
+    return 'bg-notMain-header-color'
   }
 })
 
@@ -48,9 +65,9 @@ const headerClass = computed(() => {
   padding-top: 0 !important;
 }
 
-// 투명도 있는 회색 배경 클래스
+// 투명도 있는 회색 배경 클래스 (메인 페이지에서 헤더 색상)
 .bg-grey-9-transparent {
-  background-color: rgba(33, 33, 33, 0.2) !important; // 회색 + 80% 투명도
+  background-color: rgb(33, 33, 33,0.4) !important; // 회색 + 80% 투명도
   backdrop-filter: blur(5px); // 뒤가 살짝 비치는 유리효과 (선택)
   transition: background-color 0.3s; // 부드러운 변화
 }
@@ -59,4 +76,11 @@ const headerClass = computed(() => {
   background-color: transparent !important;
   transition: background-color 0.3s;
 }
+
+// 메인 페이지가 아닐 헤더 색상
+.bg-notMain-header-color{
+  background-color: rgb(43, 43, 143,0.65)
+}
+
+
 </style>

@@ -20,7 +20,7 @@
     -->
     <div class="full-width flex justify-center">
       <!-- 부모가 자식을 중앙으로 밀어줌 -->
-      <div class="my-grid">
+      <div class="product_grid">
         <q-item v-for="item in products" :key="item.id" clickable dense class="q_item my-item">
           <q-item-section avatar side>
             <q-avatar rounded size="xl" class="q_img">
@@ -37,7 +37,7 @@
 </template>
 
 <script setup>
-import { products } from 'src/assets/data/products'
+import {products} from 'src/assets/data/products'
 </script>
 
 <style lang="scss" scoped>
@@ -59,7 +59,7 @@ import { products } from 'src/assets/data/products'
 }
 
 .item_title {
-  font-size: 14px;
+  font-size: 12px;
 }
 
 :deep(.q_item) {
@@ -77,18 +77,24 @@ import { products } from 'src/assets/data/products'
   }
 }
 
-.my-grid {
+.product_grid {
   display: grid;
   /* 가로로 4개 고정, 각 너비는 동일하게 */
   grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: 70px;
   gap: 5px; /* 아이템 사이 간격 */
   width: 100%; /* 부모 너비에 맞춤 */
-  padding: 5px;
+  padding: 2px;
+  height: 100%;
+}
+
+/* 마지막 행에 속한 아이템들만 선택 (예: 아이템이 3열일 때) */
+.my-item:nth-last-child(-n+3) {
+  //height: 50px;
 }
 
 .my-item {
   border-radius: 8px;
-  min-height: 80px;
 }
 
 /**

@@ -1,12 +1,7 @@
 <template>
   <div class="about_dropDwon column rounded-borders q-col-gutter-y-sm text-left">
     <q-list dense>
-      <q-item clickable to="/About" class="q_item">
-        <q-item-section side>
-          <q-icon name="info_outline" class="q_item_icon" />
-        </q-item-section>
-        <q-item-section>About</q-item-section>
-      </q-item>
+
 
       <q-item clickable to="/Vision" class="q_item">
         <q-item-section side>

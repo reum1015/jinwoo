@@ -9,17 +9,18 @@
       </div>
       <!-- 로고 End.-->
       <!--메인 메뉴 -->
-      <div class="flex flex-center col-6 col-md-6 main_menu full-height">
+      <div class="flex flex-center col-6 col-md-6 main_menu full-height"
+           :class="{ 'disable-hover': isNavigating }">
         <ul class="row flex-center q-pa-none q-ma-none text-h6 text-bold full-height">
           <li class="col">
             <q-btn
               :color="$route.path === '/' ? 'primary' : 'white'"
-              :class="{ 'text-weight-bolder': $route.path === '/' }"
+              :class="{ 'text-weight-bolder': $route.path === '/'}"
               flat
               no-caps
               label="Home"
               class="menu_items"
-              :to="{ name: 'Home' }"
+              :to="{ path: '/' }"
               :ripple="false"
             />
           </li>
@@ -28,6 +29,8 @@
               <AboutDropDown v-show="isAbout"></AboutDropDown>
             </transition>
             <q-btn
+              :color="$route.path === '/about' ? 'primary' : 'white'"
+              :class="{ 'text-weight-bolder': $route.path === '/about'}"
               flat
               no-caps
               label="About"
@@ -36,11 +39,15 @@
               :ripple="false"
             />
           </li>
+
+          <!-- Prodyct List  -->
           <li class="col" @mouseenter="isProduct = true" @mouseleave="isProduct = false">
             <transition name="slide-fade">
               <ProductDropDown v-show="isProduct"></ProductDropDown>
             </transition>
             <q-btn
+              :color="$route.path === '/products' ? 'primary' : 'white'"
+              :class="{ 'text-weight-bolder': $route.path === '/products'}"
               flat
               no-caps
               label="Products"
@@ -49,16 +56,20 @@
               :ripple="false"
             />
           </li>
+
+          <!-- Contact List-->
           <li class="col" @mouseenter="isContact = true" @mouseleave="isContact = false">
             <transition name="slide-fade">
               <ContactDropDown v-show="isContact"></ContactDropDown>
             </transition>
             <q-btn
+              :color="$route.path === '/service' ? 'primary' : 'white'"
+              :class="{ 'text-weight-bolder': $route.path === '/service' }"
               flat
               no-caps
-              label="Contact"
+              label="Service"
               class="menu_items"
-              :to="{ name: 'Contact' }"
+              :to="{ name: 'Service' }"
               :ripple="false"
             />
           </li>
@@ -84,6 +95,8 @@
           </q-input>
         </div>
 
+
+        <!-- Hamburger Menu -->
         <div class="menu_box">
           <q-btn
             class="lt-sm"
@@ -96,6 +109,7 @@
           />
         </div>
 
+        <!--  language Select-->
         <div class="lang_box">
           <q-btn
             class="btn"
@@ -158,19 +172,38 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import {ref} from 'vue'
 import EssentialLink from 'src/components/EssentialLink.vue'
 import AboutDropDown from 'src/components/dropDownMenus/AboutDropDown.vue'
 import ContactDropDown from 'src/components/dropDownMenus/ContactDropDown.vue'
 import ProductDropDown from 'src/components/dropDownMenus/ProductDropDown.vue'
 
-import { useQuasar } from 'quasar'
+import {useQuasar} from 'quasar'
+import {useRouter} from 'vue-router'
 
 const isAbout = ref(false)
 const isContact = ref(false)
 const isProduct = ref(false)
 
+const isNavigating = ref(false) // 이동 중인지 체크하는 변수
+
+
 const $q = useQuasar()
+
+const router = useRouter();
+router.afterEach(() => {
+  isAbout.value = false
+  isContact.value = false
+  isProduct.value = false
+
+  // 이동 직후 클래스 추가
+  isNavigating.value = true
+
+  // 500ms(애니메이션 시간 고려) 후에 다시 호버가 작동하도록 잠금 해제
+  setTimeout(() => {
+    isNavigating.value = false
+  }, 1000)
+})
 
 const linksList = [
   {
@@ -221,7 +254,7 @@ function toggleLeftDrawer() {
       position: relative;
 
       &:hover .menu_items {
-        color: $mainColor;
+        color: $mainColor !important;
       }
     }
   }
@@ -233,9 +266,21 @@ function toggleLeftDrawer() {
     letter-spacing: -1px;
     //font-weight: 600;
     color: $mainMenuColor;
-    transition: color 0.4s ease-in-out;
+    transition: all 0.4s ease-in-out;
   }
 }
+
+/* active 상태(현재 페이지)일 때 효과 */
+.text-weight-bolder {
+  transform: scale(1.05); /* 살짝 커지면서 강조됨 */
+  font-weight: 700; /* 두께는 그대로 두되 scale로 시각적 효과 부여 */
+}
+
+/* style 섹션 하단에 추가 */
+.disable-hover {
+  pointer-events: none !important; /* 마우스 인식을 강제로 끔 */
+}
+
 
 /** <q-btn> hover 배경색 변경 */
 :deep(.menu_items) {
@@ -268,6 +313,10 @@ function toggleLeftDrawer() {
 :deep(.q-drawer),
 :deep(.q-drawer__backdrop) {
   transition: all 0.5s cubic-bezier(0.73, 0.17, 0.61, 1.01) !important;
+}
+
+.color-black{
+  color : black !important;
 }
 
 /* --- 여기서부터 핵심 애니메이션 --- */

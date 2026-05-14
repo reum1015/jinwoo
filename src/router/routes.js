@@ -1,35 +1,14 @@
-import UserTest from 'layouts/UserTest.vue'
-import CaTest from 'src/pages/CaTest.vue'
-
 const routes = [
   {
     path: '/',
-    name: 'home',
+    name: 'Home',
     component: () => import('layouts/MainLayout.vue'),
-    children: [{ path: '', component: () => import('pages/IndexPage.vue') }],
-  },
-
-  {
-    path: '/user',
-    component: UserTest,
-    name: 'User',
     children: [
-      {
-        path: 'about',
-        component: CaTest,
-      },
+      {path: '', component: () => import('pages/IndexPage.vue') },
+      {path : 'about',component: () => import('pages/about/AboutPage.vue'), name: 'About'},
+      {path : 'products',component: () => import('pages/products/ProcuctPage.vue'), name: 'Products'},
+      {path : 'service',component: () => import('../pages/contact/ServicePage.vue'), name: 'Service',},
     ],
-  },
-
-  {
-    path: '/test',
-    component: () => import('../pages/TestPage.vue'),
-  },
-
-  {
-    path: '/products',
-    component: () => import('../pages/ProductsPage.vue'),
-    name: 'Products',
   },
 
   // Always leave this as last one,
