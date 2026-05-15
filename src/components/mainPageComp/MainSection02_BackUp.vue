@@ -18,10 +18,9 @@
 
 <script setup>
 import gsap from 'gsap'
-import { onMounted, onUnmounted, ref } from 'vue'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import {onMounted, onUnmounted} from 'vue'
+import {ScrollTrigger} from 'gsap/ScrollTrigger'
 
-const sec01 = ref(0)
 let ctx
 
 gsap.registerPlugin(ScrollTrigger)
@@ -160,8 +159,8 @@ onUnmounted(() => {
 /* spin 이미지와 배경색 */
 .work ul li a .imgBox:after {
   content: '';
-  width: 0%;
-  height: 0%;
+  width: 0;
+  height: 0;
   border-radius: 100%;
   background: #fff url('src/assets/imgs/circle.png') no-repeat center/130px;
   position: absolute;
