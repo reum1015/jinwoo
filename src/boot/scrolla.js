@@ -1,34 +1,35 @@
-import {boot} from 'quasar/wrappers'
+import { boot } from 'quasar/wrappers'
 
 export default boot(({ app }) => {
   app.directive('scrolla', {
     mounted(el, binding) {
-      // 초기 상태 클래스 추가
-      el.classList.add('animate-init');
+      // 1. 값의 타입에 따라 애니메이션 클래스와 threshold 분기 처리
+      const isObj = binding.value && typeof binding.value === 'object'
+      const animationClass = isObj ? binding.value.class : binding.value || 'fade-in-up'
+      const customThreshold = isObj ? binding.value.threshold : 0.5 // 기본값 0.5
 
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          const animationClass = binding.value || 'fade-in-up';
+      el.classList.add('animate-init')
+      // 초기 방향을 결정짓기 위한 클래스 사전 등록
+      el.classList.add(animationClass)
 
-          if (entry.isIntersecting) {
-            // 1. 화면에 들어왔을 때: 애니메이션 클래스 추가
-            el.classList.add(animationClass);
-            el.classList.add('animate-start');
-          } else {
-            // 2. 화면에서 완전히 벗어났을 때: 클래스를 제거하여 초기 상태로 리셋 (once: false 역할)
-            el.classList.remove(animationClass);
-            el.classList.remove('animate-start');
-          }
-        });
-      }, {
-        threshold: 0.5 // 요소가 10% 이상 보일 때 체크
-      });
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              el.classList.add('animate-start')
+            } else {
+              el.classList.remove('animate-start')
+            }
+          })
+        },
+        { threshold: customThreshold },
+      ) // 동적 threshold 적용
 
-      observer.observe(el);
-      el._observer = observer;
+      observer.observe(el)
+      el._observer = observer
     },
     unmounted(el) {
-      if (el._observer) el._observer.disconnect();
-    }
-  });
-});
+      if (el._observer) el._observer.disconnect()
+    },
+  })
+})

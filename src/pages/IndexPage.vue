@@ -5,14 +5,14 @@
     <!-- main section 01-->
     <MainSection01></MainSection01>
     <MainSection02></MainSection02>
+    <MainSection03></MainSection03>
   </q-page>
 </template>
 <script setup>
-import MainpageCarousel from "../components/mainPageComp/mainPageCarousel/MainpageCarousel.vue";
-import MainSection02 from "components/mainPageComp/MainSection02.vue";
-import MainSection01 from "components/mainPageComp/MainSection01.vue";
+import MainpageCarousel from '../components/mainPageComp/mainPageCarousel/MainpageCarousel.vue'
+import MainSection02 from 'components/mainPageComp/MainSection02.vue'
+import MainSection01 from 'components/mainPageComp/MainSection01.vue'
+import MainSection03 from 'components/mainPageComp/MainSection03.vue'
 </script>
 
-<style scoped lang="scss">
-
-</style>
+<style scoped lang="scss"></style>

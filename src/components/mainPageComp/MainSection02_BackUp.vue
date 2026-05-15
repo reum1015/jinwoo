@@ -18,9 +18,10 @@
 
 <script setup>
 import gsap from 'gsap'
-import { onMounted, onUnmounted } from 'vue'
+import { onMounted, onUnmounted, ref } from 'vue'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
+const sec01 = ref(0)
 let ctx
 
 gsap.registerPlugin(ScrollTrigger)
@@ -69,7 +70,7 @@ onMounted(() => {
               start: 'center center',
               end: 'center left',
               scrub: true,
-              //markers: true,
+              markers: true,
             },
           })
           .to(imageBox, { 'clip-path': 'inset(30%)', duration: 1 }, 0)
