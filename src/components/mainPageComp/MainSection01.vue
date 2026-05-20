@@ -16,7 +16,7 @@
           </p>
         </div>
 
-        <div class="aniBox" v-scrolla="{ class: 'my-fade-in', threshold: 0.6 }">
+        <div class="aniBox" v-scrolla="{ class: 'my-fade-in', threshold: 0.5 }">
           <q-img src="~assets/imgs/logo/fedex.png"></q-img>
         </div>
       </div>
@@ -26,8 +26,8 @@
 
 <script setup>
 import gsap from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import { onMounted, onUnmounted, ref } from 'vue'
+import {ScrollTrigger} from 'gsap/ScrollTrigger'
+import {onMounted, onUnmounted, ref} from 'vue'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -110,7 +110,7 @@ onUnmounted(() => {
 
 /* 시작 위치 정의 */
 .my-fade-in {
-  transform: translateY(200px);
+  transform:  translateY(150px);
 }
 .my-fade-left {
   transform: translateX(-200px);

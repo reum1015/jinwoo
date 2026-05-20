@@ -20,17 +20,16 @@
 
 <script setup>
 import gsap from 'gsap'
-import { onMounted, onUnmounted, ref, nextTick } from 'vue'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import {onMounted, onUnmounted, ref} from 'vue'
+import {ScrollTrigger} from 'gsap/ScrollTrigger'
 
 gsap.registerPlugin(ScrollTrigger)
 
 const container = ref(null)
 let ctx = null
 
-onMounted(async () => {
+onMounted( () => {
   // DOM 렌더링이 완전히 완료된 후 실행 보장
-  await nextTick()
 
   ctx = gsap.context(() => {
     // scoped style 충돌을 피하기 위해 class 문자열 대신 ref 참조 활용
@@ -45,7 +44,8 @@ onMounted(async () => {
           scrollTrigger: {
             trigger: container.value, // 클래스명 대신 요소 직접 지정
             start: '0% 60%', // '0% 60%'보다 명확한 직관적 키워드 사용
-            markers: true,
+
+            //markers: true,
             scrub: 1,
           },
         },
@@ -53,14 +53,12 @@ onMounted(async () => {
     }
   }, container.value) // scope를 확실히 지정
 
-  // window load 시점에 refresh 진행
-  window.addEventListener('load', refreshScroll)
+
 })
 
-const refreshScroll = () => ScrollTrigger.refresh()
 
 onUnmounted(() => {
-  window.removeEventListener('load', refreshScroll)
+
   if (ctx) ctx.revert() // 메모리 누수 방지 및 인스턴스 초기화
 })
 </script>
@@ -68,7 +66,7 @@ onUnmounted(() => {
 <style scoped lang="scss">
 .textBox {
   font-size: 60px;
-  margin: 2000px 0; // 단축 속성 정리
+
   background-color: crimson;
   line-height: 1.3;
 
