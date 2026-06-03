@@ -1,5 +1,6 @@
 <template>
   <q-layout view="lHh Lff lFf" class="main_layout">
+
     <!-- 스크롤 감지 컴포넌트 -->
     <q-scroll-observer @scroll="onScroll" />
     <!-- 헤더에 동적 클래스 부여 -->
@@ -29,8 +30,34 @@
 <script setup>
 import HeaderNavBar from 'layouts/HeaderNavBar.vue'
 
-import {computed, ref} from 'vue'
+import {computed, onMounted, onUnmounted, ref} from 'vue'
 import {useRoute} from 'vue-router'
+import gsap from "gsap";
+import {ScrollSmoother} from "gsap/ScrollSmoother";
+
+gsap.registerPlugin(ScrollSmoother);
+
+let ctx;
+
+onMounted( () => {
+  // DOM 렌더링이 완전히 완료된 후 실행 보장
+
+  ctx = gsap.context(() => {
+    // scoped style 충돌을 피하기 위해 class 문자열 대신 ref 참조 활용
+
+
+  }) // scope를 확실히 지정
+
+
+})
+
+
+onUnmounted(() => {
+
+  if (ctx) ctx.revert() // 메모리 누수 방지 및 인스턴스 초기화
+})
+
+
 
 const route = useRoute()
 const isScrolled = ref(false)
@@ -56,9 +83,11 @@ const headerClass = computed(() => {
   }
 })
 
-//만약 특정 버튼만 색상이 안 바뀐다면, 해당 버튼에 :class="isScrolled ? 'text-amber' : 'text-white'"를 직접 바인딩하는 방법도 있습니다. (이 경우 isScrolled 변수를 props로 넘겨줘야 합니다.)
+//만약 특정 버튼만 색상이 안 바뀐다면, 해당 버튼에 :class="isScrolled ? 'text-amber' : 'text-white'"를 직접 바인딩하는 방법도 있습니다.
+// (이 경우 isScrolled 변수를 props로 넘겨줘야 합니다.)
 </script>
 <style scoped lang="scss">
+
 .absolute-top {
 }
 .main-page-container {

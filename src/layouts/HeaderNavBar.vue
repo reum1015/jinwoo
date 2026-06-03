@@ -4,7 +4,7 @@
       <!-- 로고 -->
       <div class="logo_box flex flex-center col-3 col-md-3 full-height">
         <router-link to="/">
-          <q-img src="~assets/imgs/logo/fedex.png" class="main_logo flex align-center" alt="logo"
+          <q-img src="~assets/imgs/logo/jinlogo.png" class="main_logo flex align-center" alt="logo"
         /></router-link>
       </div>
       <!-- 로고 End.-->

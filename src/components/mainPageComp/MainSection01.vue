@@ -17,7 +17,7 @@
         </div>
 
         <div class="aniBox" v-scrolla="{ class: 'my-fade-in', threshold: 0.5 }">
-          <q-img src="~assets/imgs/logo/fedex.png"></q-img>
+          <q-img src="~assets/imgs/logo/jinlogo.png"></q-img>
         </div>
       </div>
     </section>
@@ -51,7 +51,7 @@ onUnmounted(() => {
   position: relative;
   margin: 0 auto;
   overflow: hidden;
-  background: #000;
+  background: #50b1ff;
   color: #fff;
 }
 .visual {
