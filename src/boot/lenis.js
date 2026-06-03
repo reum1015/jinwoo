@@ -1,7 +1,7 @@
-import {boot} from 'quasar/wrappers'
+import { boot } from 'quasar/wrappers'
 import Lenis from 'lenis'
-import {gsap} from 'gsap'
-import {ScrollTrigger} from 'gsap/ScrollTrigger'
+import { gsap } from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -11,7 +11,7 @@ export default boot(({ router }) => {
 
   // 1. 전역 Lenis 인스턴스 초기화
   const lenis = new Lenis({
-    duration: 2,
+    duration: 1.1,
     easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
     orientation: 'vertical',
     gestureOrientation: 'vertical',
@@ -32,7 +32,7 @@ export default boot(({ router }) => {
   // 4. 전역 라우터 가드: 페이지 이동 시 스크롤 제어
   router.beforeEach((to, from, next) => {
     // 이동하기 전, 기존 페이지의 모든 ScrollTrigger 강제 파괴 (메모리 누수 및 충돌 방지)
-    ScrollTrigger.getAll().forEach(trigger => trigger.kill())
+    ScrollTrigger.getAll().forEach((trigger) => trigger.kill())
     next()
   })
 
