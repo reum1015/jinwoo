@@ -1,15 +1,14 @@
 <template>
   <!-- Lenis 스크롤 간섭 차단을 위한 data-lenis-prevent 추가 -->
   <section class="main-product flex flex-center">
+    <div class="title-wrapper">
+      <h1 class="title-text">Product List</h1>
+    </div>
     <div ref="containerRef" class="card-carousel-container">
       <div ref="trackRef" class="card-track">
         <!-- 각 카드 엘리먼트들을 추적하기 위해 ref 배열 바인딩 처리 제거 및 단순화 -->
-        <q-card
-          v-for="(i, index) in 10"
-          :key="i"
-          :index="index"
-          class="my-card q-ma-lg shadow-5"
-        >
+
+        <q-card v-for="(i, index) in 10" :key="i" :index="index" class="my-card q-ma-lg shadow-5">
           <q-img src="https://cdn.quasar.dev/img/parallax2.jpg" class="product-image">
             <div class="absolute-bottom">
               <div class="text-h6">Insulation Kit {{ i }}</div>
@@ -26,24 +25,22 @@
 </template>
 
 <script setup>
-import {onMounted, onUnmounted, ref} from "vue";
-import gsap from "gsap";
-import {Draggable} from "gsap/Draggable";
-import {InertiaPlugin} from "gsap/InertiaPlugin";
+import { onMounted, onUnmounted, ref } from 'vue'
+import gsap from 'gsap'
+import { Draggable } from 'gsap/Draggable'
+import { InertiaPlugin } from 'gsap/InertiaPlugin'
 
-gsap.registerPlugin(Draggable, InertiaPlugin);
+gsap.registerPlugin(Draggable, InertiaPlugin)
 
-const containerRef = ref(null);
-const trackRef = ref(null);
-let ctx;
+const containerRef = ref(null)
+const trackRef = ref(null)
+let ctx
 
 onMounted(() => {
-  ctx = gsap.context(() => {
-
-  });
+  ctx = gsap.context(() => {})
 })
 onUnmounted(() => {
-  if (ctx) ctx.revert();
+  if (ctx) ctx.revert()
 })
 </script>
 

@@ -118,7 +118,10 @@ onUnmounted(() => {
 <style scoped lang="scss">
 .item-section {
   width: 100%;
-  background-image: url('src/assets/imgs/background/celeb/cel04.jpg');
+
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    url('src/assets/imgs/background/celeb/cel04.jpg');
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
