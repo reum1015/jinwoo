@@ -52,6 +52,20 @@ onUnmounted(() => {
   overflow: hidden;
 }
 
+.title-wrapper {
+  width: 100%;
+  text-align: left;
+}
+
+.title-text {
+  margin-left: 2rem;
+  font-family: 'Lobster', sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  letter-spacing: -1px;
+  color: #fff;
+}
+
 .card-carousel-container {
   width: 100%;
   overflow: hidden;
