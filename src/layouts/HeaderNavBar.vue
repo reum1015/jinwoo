@@ -9,13 +9,15 @@
       </div>
       <!-- 로고 End.-->
       <!--메인 메뉴 -->
-      <div class="flex flex-center col-6 col-md-6 main_menu full-height"
-           :class="{ 'disable-hover': isNavigating }">
+      <div
+        class="flex flex-center col-6 col-md-6 main_menu full-height"
+        :class="{ 'disable-hover': isNavigating }"
+      >
         <ul class="row flex-center q-pa-none q-ma-none text-h6 text-bold full-height">
           <li class="col">
             <q-btn
               :color="$route.path === '/' ? 'primary' : 'white'"
-              :class="{ 'text-weight-bolder': $route.path === '/'}"
+              :class="{ 'text-weight-bolder': $route.path === '/' }"
               flat
               no-caps
               label="Home"
@@ -30,7 +32,7 @@
             </transition>
             <q-btn
               :color="$route.path === '/about' ? 'primary' : 'white'"
-              :class="{ 'text-weight-bolder': $route.path === '/about'}"
+              :class="{ 'text-weight-bolder': $route.path === '/about' }"
               flat
               no-caps
               label="About"
@@ -47,7 +49,7 @@
             </transition>
             <q-btn
               :color="$route.path === '/products' ? 'primary' : 'white'"
-              :class="{ 'text-weight-bolder': $route.path === '/products'}"
+              :class="{ 'text-weight-bolder': $route.path === '/products' }"
               flat
               no-caps
               label="Products"
@@ -94,7 +96,6 @@
             </template>
           </q-input>
         </div>
-
 
         <!-- Hamburger Menu -->
         <div class="menu_box">
@@ -172,14 +173,14 @@
 </template>
 
 <script setup>
-import {ref} from 'vue'
+import { ref } from 'vue'
 import EssentialLink from 'src/components/EssentialLink.vue'
 import AboutDropDown from 'src/components/dropDownMenus/AboutDropDown.vue'
 import ContactDropDown from 'src/components/dropDownMenus/ContactDropDown.vue'
 import ProductDropDown from 'src/components/dropDownMenus/ProductDropDown.vue'
 
-import {useQuasar} from 'quasar'
-import {useRouter} from 'vue-router'
+import { useQuasar } from 'quasar'
+import { useRouter } from 'vue-router'
 
 const isAbout = ref(false)
 const isContact = ref(false)
@@ -187,10 +188,9 @@ const isProduct = ref(false)
 
 const isNavigating = ref(false) // 이동 중인지 체크하는 변수
 
-
 const $q = useQuasar()
 
-const router = useRouter();
+const router = useRouter()
 router.afterEach(() => {
   isAbout.value = false
   isContact.value = false
@@ -281,7 +281,6 @@ function toggleLeftDrawer() {
   pointer-events: none !important; /* 마우스 인식을 강제로 끔 */
 }
 
-
 /** <q-btn> hover 배경색 변경 */
 :deep(.menu_items) {
   &:hover .q-focus-helper {
@@ -315,8 +314,8 @@ function toggleLeftDrawer() {
   transition: all 0.5s cubic-bezier(0.73, 0.17, 0.61, 1.01) !important;
 }
 
-.color-black{
-  color : black !important;
+.color-black {
+  color: black !important;
 }
 
 /* --- 여기서부터 핵심 애니메이션 --- */
