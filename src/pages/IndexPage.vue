@@ -1,9 +1,9 @@
 <template>
   <q-page>
     <MainPageCarousel></MainPageCarousel>
-<!--    <MainSection01></MainSection01>-->
+    <MainSection01></MainSection01>
     <MainImageZoom></MainImageZoom>
-<!--    <MainTextMask></MainTextMask>-->
+    <MainTextMask></MainTextMask>
     <MainCard></MainCard>
     <MainProductList></MainProductList>
   </q-page>
@@ -17,6 +17,8 @@ import MainCard from "components/mainPageComp/MainCard.vue";
 
 import {ScrollTrigger} from 'gsap/ScrollTrigger'
 import MainProductList from "components/mainPageComp/MainProductList.vue";
+import MainSection01 from "components/mainPageComp/MainSection01.vue";
+import MainTextMask from "components/mainPageComp/MainTextMask.vue";
 
 
 // indexPage.vue 의온마운트 부분 변경 추천

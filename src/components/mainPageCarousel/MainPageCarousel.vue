@@ -22,6 +22,10 @@
       <CarouselTextEffect03> </CarouselTextEffect03>
     </q-carousel-slide>
 
+    <q-carousel-slide :name="4" img-src="~assets/imgs/carousel/bg_04.jpg">
+      <CarouselTextEffect04> </CarouselTextEffect04>
+    </q-carousel-slide>
+
 <!--    <q-carousel-slide :name="4" img-src="~assets/imgs/carousel/bg_04.jpg" />-->
   </q-carousel>
 </template>
@@ -30,6 +34,7 @@
 import CarouselTextEffect01 from "./CarouselTextEffect01.vue";
 import CarouselTextEffect02 from "./CarouselTextEffect02.vue";
 import CarouselTextEffect03 from "./CarouselTextEffect03.vue";
+import CarouselTextEffect04 from "./CarouselTextEffect04.vue";
 
 import {ref} from 'vue'
 

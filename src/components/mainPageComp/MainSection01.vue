@@ -51,12 +51,12 @@ onUnmounted(() => {
   position: relative;
   margin: 0 auto;
   overflow: hidden;
-  background: #50b1ff;
+  background: #000000;
   color: #fff;
 }
 .visual {
   padding-top: 150px;
-  height: 100vh;
+  height: 60vh;
   box-sizing: border-box;
   .inner {
     width: 70%;
