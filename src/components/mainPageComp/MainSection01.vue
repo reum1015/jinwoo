@@ -56,7 +56,7 @@ onUnmounted(() => {
 }
 .visual {
   padding-top: 150px;
-  height: 60vh;
+  height: 100vh;
   box-sizing: border-box;
   .inner {
     width: 70%;

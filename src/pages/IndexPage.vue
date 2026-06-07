@@ -6,6 +6,7 @@
     <MainTextMask></MainTextMask>
     <MainCard></MainCard>
     <MainProductList></MainProductList>
+    <MainSlideCard></MainSlideCard>
   </q-page>
 </template>
 <script setup>
@@ -19,6 +20,7 @@ import {ScrollTrigger} from 'gsap/ScrollTrigger'
 import MainProductList from "components/mainPageComp/MainProductList.vue";
 import MainSection01 from "components/mainPageComp/MainSection01.vue";
 import MainTextMask from "components/mainPageComp/MainTextMask.vue";
+import MainSlideCard from "../components/mainPageComp/MainSlideCard.vue";
 
 
 // indexPage.vue 의온마운트 부분 변경 추천

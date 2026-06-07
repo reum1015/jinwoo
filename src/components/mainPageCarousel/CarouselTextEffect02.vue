@@ -24,19 +24,19 @@ gsap.registerPlugin(SplitText,ScrollTrigger);
 
 onMounted(() => {
   ctx = gsap.context(()=>{
-    const split = SplitText.create(".con_01", {type:"chars"})
-    const split1 = SplitText.create(".con_02", {type:"chars"})
+    const split = SplitText.create(".con_01", {type:"words"})
+    const split1 = SplitText.create(".con_02", {type:"words"})
 
-    gsap.from(split.chars,{
+    gsap.from(split.words,{
       y:40,
       color:"#00ff66",
       opacity:0,
       stagger:{each: 0.1, from : 'start'},
-      duration:1,
+      duration:2,
       ease : "sine.out",
     })
 
-    gsap.from(split1.chars,{
+    gsap.from(split1.words,{
       y: -100, opacity: 0,
       stagger: { each: 0.1, from: "random" },
       duration:1, ease: "power2.out"
