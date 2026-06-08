@@ -1,7 +1,7 @@
 <script setup>
-import {onMounted, onUnmounted} from 'vue'
+import { onMounted, onUnmounted } from 'vue'
 import gsap from 'gsap'
-import {ScrollTrigger} from 'gsap/ScrollTrigger'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -40,48 +40,54 @@ onUnmounted(() => {
     <div class="next next01"></div>
   </section>
   <section ref="mainStackerCard" class="stacker-card" id="parallax__cont">
+    <!-- Section 01 -->
     <div class="section section01">
-      <div class="card" id="card-1">
-        <div class="col">
+      <div class="my-card" id="my-card-01">
+        <div class="my-col">
           <h1>Reliable Sealing Solution Partner</h1>
         </div>
-        <div class="col">
+        <div class="my-col">
           <q-img class="img" src="~assets/imgs/intro/reliable_01.jpg"></q-img>
         </div>
       </div>
       <span class="parallax__con__num">01</span>
     </div>
+    <!-- Section 02 -->
     <div class="section section02">
-      <div class="col">
-        <h1>Fast Response, Accurate Solution</h1>
+      <div class="my-card" id="my-card-02">
+        <div class="my-col">
+          <h1>Fast Response, Accurate Solution</h1>
+        </div>
+        <div class="my-col">
+          <q-img class="img" src="~assets/imgs/intro/fast_01.jpg"></q-img>
+        </div>
       </div>
-      <div class="col">
-        <q-img class="img" src="~assets/imgs/intro/fast_01.jpg"></q-img>
-      </div>
-
       <span class="parallax__con__num">02</span>
-
     </div>
+
+    <!-- Section 03 -->
     <div class="section section03">
-      <div class="col">
-        <h1>Customized Sealing for Critical Industries</h1>
-      </div>
-      <div class="col">
-        <q-img class="img" src="~assets/imgs/intro/customized_01.jpg"></q-img>
+      <div class="my-card" id="my-card-03">
+        <div class="my-col">
+          <h1>Customized Sealing for Critical Industries</h1>
+        </div>
+        <div class="my-col">
+          <q-img class="img" src="~assets/imgs/intro/customized_01.jpg"></q-img>
+        </div>
       </div>
       <span class="parallax__con__num">03</span>
     </div>
-
+    <!-- Section 04 -->
     <div class="section section04">
-      <div class="col">
-        <h1>Quality First, Performance Proven</h1>
+      <div class="my-card" id="my-card-04">
+        <div class="my-col">
+          <h1>Quality First, Performance Proven</h1>
+        </div>
+        <div class="my-col">
+          <q-img class="img" src="~assets/imgs/intro/quality_01.jpg"></q-img>
+        </div>
       </div>
-      <div class="col">
-        <q-img class="img" src="~assets/imgs/intro/quality_01.jpg"></q-img>
-      </div>
-
       <span class="parallax__con__num">04</span>
-
     </div>
   </section>
 
@@ -110,7 +116,7 @@ onUnmounted(() => {
   display: flex;
   justify-content: center;
   align-items: center;
-
+  background-color: rgb(189, 180, 180);
 }
 
 .parallax__con__num {
@@ -118,33 +124,6 @@ onUnmounted(() => {
   position: absolute;
   bottom: 5%;
   right: 5%;
-}
-
-.section01 {
-  background-color: #f2c037;
-}
-.section02 {
-  background-color: #264f03;
-}
-.section03 {
-  background-color: #8a012a;
-}
-.section04 {
-  background-color: #210679;
-}
-.section05 {
-  background-color: #046239;
-}
-.section06 {
-  background-color: #363433;
-}
-
-.next {
-  height: 100vh;
-}
-
-.next_section {
-  overflow: hidden;
 }
 
 .next01 {
@@ -156,7 +135,7 @@ onUnmounted(() => {
   height: 100%;
   object-fit: cover;
 }
-h1{
+h1 {
   font-family: 'Barlow Condensed';
   text-transform: uppercase;
   font-size: 4.5rem;
@@ -165,37 +144,45 @@ h1{
   color: #fff;
 }
 
-.card{
-  position: absolute;
-  top:50%;
-  left: 50%;
-  width: 90%;
+#my-card-01 {
+  background-color: #466ec4;
+}
+#my-card-02 {
+  background-color: #a155ff;
+}
+#my-card-03 {
+  background-color: #ba2157;
+}
+#my-card-04 {
+  background-color: #dc9613;
+}
+
+.my-card {
+  width: 70%;
   height: 60%;
   display: flex;
   justify-content: center;
   align-items: center;
-  gap : 1rem;
+  gap: 1rem;
   padding: 2.5rem;
   border-radius: 1rem;
   color: #fff;
   transform-origin: center bottom;
 }
 
-
-.card .col {
-  flex : 1;
+.my-card .my-col {
+  flex: 1;
   height: 100%;
 }
 
-.card .col:nth-child(1) {
+.my-card .my-col:nth-child(1) {
   display: flex;
   flex-direction: column;
   justify-content: center;
   padding: 0.5rem;
 }
 
-
-.card .col:nth-child(2) {
+.my-card .my-col:nth-child(2) {
   border-radius: 0.75rem;
   overflow: hidden;
 }

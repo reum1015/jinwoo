@@ -1,7 +1,7 @@
 <script setup>
-import {onMounted, onUnmounted, ref} from 'vue'
+import { onMounted, onUnmounted, ref } from 'vue'
 import gsap from 'gsap'
-import {ScrollTrigger} from 'gsap/ScrollTrigger'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -70,7 +70,7 @@ onUnmounted(() => {
       <div class="content">
         <div class="hero"></div>
         <div class="content-title">
-          <h1 class="lobster-regular">
+          <h1 class="content-title-h1">
             <span>jinwoo</span>
             <span>korea</span>
           </h1>
@@ -88,15 +88,16 @@ onUnmounted(() => {
     만약 sec01, sec02, sec03이 다음 스크롤 화면으로 보여야 하는 거라면
     고정되는 고유 영역(section) 바깥으로 완전히 빼내야 레이아웃이 깨지지 않습니다.
   -->
-
 </template>
 
 <style scoped lang="scss">
-.lobster-regular {
-  font-family: 'Lobster', sans-serif;
-  font-weight: 600;
-  font-style: normal;
-  letter-spacing: 5px;
+.content-title-h1 {
+  font-family: 'Barlow Condensed';
+  text-transform: uppercase;
+  font-size: 4.5rem;
+  line-height: 1;
+  font-weight: 700;
+  display: flex;
 }
 
 /* 고정될 메인 컨테이너 */

@@ -4,26 +4,26 @@
     <MainSection01></MainSection01>
     <MainImageZoom></MainImageZoom>
     <MainStackedCard></MainStackedCard>
-    <MainStackedCard2></MainStackedCard2>
-<!--    <MainTextMask></MainTextMask>-->
+    <MainSlideCard></MainSlideCard>
+    <MainTextMask></MainTextMask>
+
+    <!-- <MainStackedCard2></MainStackedCard2> -->
     <MainCard></MainCard>
     <MainProductList></MainProductList>
-    <MainSlideCard></MainSlideCard>
-
   </q-page>
 </template>
 <script setup>
-import {onMounted, onUnmounted} from 'vue'
-import MainImageZoom from '../components/mainPageComp/MainImageZoom.vue'
+import { onMounted, onUnmounted } from 'vue'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+
+import MainImageZoom from 'components/mainPageComp/MainImageZoom.vue'
 import MainPageCarousel from 'components/mainPageCarousel/MainPageCarousel.vue'
 import MainCard from 'components/mainPageComp/MainCard.vue'
-
-import {ScrollTrigger} from 'gsap/ScrollTrigger'
 import MainProductList from 'components/mainPageComp/MainProductList.vue'
 import MainSection01 from 'components/mainPageComp/MainSection01.vue'
-import MainSlideCard from '../components/mainPageComp/MainSlideCard.vue'
+import MainSlideCard from 'components/mainPageComp/MainSlideCard.vue'
 import MainStackedCard from 'components/mainPageComp/MainStackedCard.vue'
-import MainStackedCard2 from "components/mainPageComp/MainStackedCard2.vue"; // indexPage.vue 의온마운트 부분 변경 추천
+import MainTextMask from 'components/mainPageComp/MainTextMask.vue'
 
 // indexPage.vue 의온마운트 부분 변경 추천
 onMounted(() => {
