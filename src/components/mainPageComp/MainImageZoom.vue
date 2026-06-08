@@ -1,7 +1,7 @@
 <script setup>
-import { onMounted, onUnmounted, ref } from 'vue'
+import {onMounted, onUnmounted, ref} from 'vue'
 import gsap from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import {ScrollTrigger} from 'gsap/ScrollTrigger'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -79,7 +79,7 @@ onUnmounted(() => {
 
       <div class="image-container">
         <!-- class를 타겟으로 바로 쓸 수 있도록 구조 조정 -->
-        <q-img src="src/assets/imgs/blackHole_03.png" class="front-image" />
+        <q-img src="~assets/imgs/blackHole_03.png" class="front-image" />
       </div>
     </div>
   </section>
@@ -88,9 +88,7 @@ onUnmounted(() => {
     만약 sec01, sec02, sec03이 다음 스크롤 화면으로 보여야 하는 거라면
     고정되는 고유 영역(section) 바깥으로 완전히 빼내야 레이아웃이 깨지지 않습니다.
   -->
-  <div class="sec01"></div>
-  <!--  <div class="sec02"></div>-->
-  <div class="sec03"></div>
+
 </template>
 
 <style scoped lang="scss">

@@ -1,7 +1,7 @@
 <script setup>
-import { onMounted, onUnmounted } from 'vue'
+import {onMounted, onUnmounted} from 'vue'
 import gsap from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import {ScrollTrigger} from 'gsap/ScrollTrigger'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -40,9 +40,49 @@ onUnmounted(() => {
     <div class="next next01"></div>
   </section>
   <section ref="mainStackerCard" class="stacker-card" id="parallax__cont">
-    <div class="section section01"><span class="parallax__con__num">01</span></div>
-    <div class="section section02"><span class="parallax__con__num">02</span></div>
-    <div class="section section03"><span class="parallax__con__num">03</span></div>
+    <div class="section section01">
+      <div class="card" id="card-1">
+        <div class="col">
+          <h1>Reliable Sealing Solution Partner</h1>
+        </div>
+        <div class="col">
+          <q-img class="img" src="~assets/imgs/intro/reliable_01.jpg"></q-img>
+        </div>
+      </div>
+      <span class="parallax__con__num">01</span>
+    </div>
+    <div class="section section02">
+      <div class="col">
+        <h1>Fast Response, Accurate Solution</h1>
+      </div>
+      <div class="col">
+        <q-img class="img" src="~assets/imgs/intro/fast_01.jpg"></q-img>
+      </div>
+
+      <span class="parallax__con__num">02</span>
+
+    </div>
+    <div class="section section03">
+      <div class="col">
+        <h1>Customized Sealing for Critical Industries</h1>
+      </div>
+      <div class="col">
+        <q-img class="img" src="~assets/imgs/intro/customized_01.jpg"></q-img>
+      </div>
+      <span class="parallax__con__num">03</span>
+    </div>
+
+    <div class="section section04">
+      <div class="col">
+        <h1>Quality First, Performance Proven</h1>
+      </div>
+      <div class="col">
+        <q-img class="img" src="~assets/imgs/intro/quality_01.jpg"></q-img>
+      </div>
+
+      <span class="parallax__con__num">04</span>
+
+    </div>
   </section>
 
   <section class="next_section">
@@ -62,11 +102,15 @@ onUnmounted(() => {
 }
 
 .section {
-  width: 100vw;
+  width: 100%;
   height: 100vh;
   position: relative;
   // 💡 flex 자식이 찌그러지지 않도록 크기를 고정합니다.
   flex-shrink: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
 }
 
 .parallax__con__num {
@@ -106,13 +150,53 @@ onUnmounted(() => {
 .next01 {
   background-color: #21ba45;
 }
-.next02 {
-  background-color: #5ea4d5;
+
+.img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
-.next03 {
-  background-color: #eabd77;
+h1{
+  font-family: 'Barlow Condensed';
+  text-transform: uppercase;
+  font-size: 4.5rem;
+  line-height: 1;
+  font-weight: 700;
+  color: #fff;
 }
-.next04 {
-  background-color: #c2187e;
+
+.card{
+  position: absolute;
+  top:50%;
+  left: 50%;
+  width: 90%;
+  height: 60%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap : 1rem;
+  padding: 2.5rem;
+  border-radius: 1rem;
+  color: #fff;
+  transform-origin: center bottom;
+}
+
+
+.card .col {
+  flex : 1;
+  height: 100%;
+}
+
+.card .col:nth-child(1) {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0.5rem;
+}
+
+
+.card .col:nth-child(2) {
+  border-radius: 0.75rem;
+  overflow: hidden;
 }
 </style>
