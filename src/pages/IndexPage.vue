@@ -7,21 +7,21 @@
     <MainCard></MainCard>
     <MainProductList></MainProductList>
     <MainSlideCard></MainSlideCard>
+    <MainStackedCard></MainStackedCard>
   </q-page>
 </template>
 <script setup>
-import {onMounted, onUnmounted} from 'vue'
-import MainImageZoom from "../components/mainPageComp/MainImageZoom.vue";
-import MainPageCarousel from "components/mainPageCarousel/MainPageCarousel.vue";
-import MainCard from "components/mainPageComp/MainCard.vue";
+import { onMounted, onUnmounted } from 'vue'
+import MainImageZoom from '../components/mainPageComp/MainImageZoom.vue'
+import MainPageCarousel from 'components/mainPageCarousel/MainPageCarousel.vue'
+import MainCard from 'components/mainPageComp/MainCard.vue'
 
-
-import {ScrollTrigger} from 'gsap/ScrollTrigger'
-import MainProductList from "components/mainPageComp/MainProductList.vue";
-import MainSection01 from "components/mainPageComp/MainSection01.vue";
-import MainTextMask from "components/mainPageComp/MainTextMask.vue";
-import MainSlideCard from "../components/mainPageComp/MainSlideCard.vue";
-
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import MainProductList from 'components/mainPageComp/MainProductList.vue'
+import MainSection01 from 'components/mainPageComp/MainSection01.vue'
+import MainTextMask from 'components/mainPageComp/MainTextMask.vue'
+import MainSlideCard from '../components/mainPageComp/MainSlideCard.vue'
+import MainStackedCard from 'components/mainPageComp/MainStackedCard.vue'
 
 // indexPage.vue 의온마운트 부분 변경 추천
 onMounted(() => {
@@ -33,7 +33,7 @@ onMounted(() => {
 onUnmounted(() => {
   // 2. 메인 페이지를 떠나 다른 메뉴(예: 회사 소개, 게시판 등)로 이동할 때
   // 메인 페이지의 모든 스크롤 트리거를 깔끔하게 지워 메모리 누수를 방지합니다.
-  ScrollTrigger.getAll().forEach(trigger => trigger.kill())
+  ScrollTrigger.getAll().forEach((trigger) => trigger.kill())
 })
 </script>
 
