@@ -1,6 +1,5 @@
 <template>
   <q-layout view="lHh Lff lFf" class="main_layout">
-
     <!-- 스크롤 감지 컴포넌트 -->
     <q-scroll-observer @scroll="onScroll" />
     <!-- 헤더에 동적 클래스 부여 -->
@@ -11,18 +10,16 @@
       <router-view />
     </q-page-container>
 
-    <q-page-scroller
-      position="bottom-right"
-      :scroll-offset="300"
-    >
-    <q-btn
-      round
-      icon="arrow_upward"
-      color="grey-9"
-    text-color="white"
-    class="shadow-5"
-    style="opacity: 0.8"
-    />
+    <q-page-scroller position="bottom-right" :scroll-offset="300">
+      <q-btn
+        round
+        icon="arrow_upward"
+        color="grey-9"
+        text-color="white"
+        class="shadow-5"
+        style="opacity: 0.8"
+        @click="scrollToTop"
+      />
     </q-page-scroller>
   </q-layout>
 </template>
@@ -30,40 +27,28 @@
 <script setup>
 import HeaderNavBar from 'layouts/HeaderNavBar.vue'
 
-import {computed, onMounted, onUnmounted, ref} from 'vue'
-import {useRoute} from 'vue-router'
-import gsap from "gsap";
-import {ScrollSmoother} from "gsap/ScrollSmoother";
+import { computed, onMounted, onUnmounted, ref } from 'vue'
+import { useRoute } from 'vue-router'
 
-gsap.registerPlugin(ScrollSmoother);
+const scrollToTop = () => {
+  if (!window.lenis) return
 
-let ctx;
+  window.lenis.scrollTo(0, {
+    duration: 1.8,
+    easing: (t) => 1 - Math.pow(1 - t, 4),
+  })
+}
 
-onMounted( () => {
+onMounted(() => {
   // DOM 렌더링이 완전히 완료된 후 실행 보장
-
-  ctx = gsap.context(() => {
-    // scoped style 충돌을 피하기 위해 class 문자열 대신 ref 참조 활용
-
-
-  }) // scope를 확실히 지정
-
-
 })
 
-
-onUnmounted(() => {
-
-  if (ctx) ctx.revert() // 메모리 누수 방지 및 인스턴스 초기화
-})
-
-
+onUnmounted(() => {})
 
 const route = useRoute()
 const isScrolled = ref(false)
 
 //현재 페이지가 root('/')인지 아닌지 판별
-console.log(route.path);
 
 // 스크롤 위치 감지 함수
 const onScroll = (info) => {
@@ -87,7 +72,6 @@ const headerClass = computed(() => {
 // (이 경우 isScrolled 변수를 props로 넘겨줘야 합니다.)
 </script>
 <style scoped lang="scss">
-
 .absolute-top {
 }
 .main-page-container {
@@ -96,7 +80,7 @@ const headerClass = computed(() => {
 
 // 투명도 있는 회색 배경 클래스 (메인 페이지에서 헤더 색상)
 .bg-grey-9-transparent {
-  background-color: rgb(33, 33, 33,0.4) !important; // 회색 + 80% 투명도
+  background-color: rgb(33, 33, 33, 0.4) !important; // 회색 + 80% 투명도
   backdrop-filter: blur(5px); // 뒤가 살짝 비치는 유리효과 (선택)
   transition: background-color 0.3s; // 부드러운 변화
 }
@@ -107,9 +91,7 @@ const headerClass = computed(() => {
 }
 
 // 메인 페이지가 아닐 헤더 색상
-.bg-notMain-header-color{
-  background-color: rgb(43, 43, 143,0.65)
+.bg-notMain-header-color {
+  background-color: rgb(43, 43, 143, 0.65);
 }
-
-
 </style>

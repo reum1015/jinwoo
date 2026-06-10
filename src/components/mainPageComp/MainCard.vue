@@ -90,8 +90,7 @@ onUnmounted(() => {
   <section ref="scrollSection" class="horizontal-scroll-section item-section">
     <div class="sticky-viewport">
       <div class="intro-box">
-        <div class="text-h2 text-bold text-white text-title">Products</div>
-        <div class="text-subtitle1 text-grey-4">Drag left or right to explore</div>
+        <div class="text-h2 text-bold text-white text-title">Products List</div>
       </div>
 
       <div class="track-shell">
@@ -103,7 +102,7 @@ onUnmounted(() => {
           >
             <q-card class="my-quasar-card text-white">
               <q-img :src="card.imgUrl" :alt="card.name" class="card-img">
-                <div class="absolute-bottom text-subtitle2 text-center">
+                <div class="absolute-top text-subtitle2 text-center">
                   {{ card.name }}
                 </div>
               </q-img>
@@ -141,12 +140,15 @@ onUnmounted(() => {
   align-items: center;
   gap: 5vw;
   padding: 0 6vw;
+  flex-direction: column;
 }
 
 .intro-box {
   width: 280px;
   flex-shrink: 0;
-  font-family: 'Lobster', sans-serif;
+  font-family: 'Barlow Condensed';
+  margin-top: 5rem;
+  width: 100%;
 
   .text-title {
     font-size: clamp(3rem, 6vw, 6rem);

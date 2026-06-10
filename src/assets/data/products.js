@@ -11,20 +11,19 @@ export const product = [
 
 // 1. 우선 id 없이 데이터만 배열로 만듭니다.
 const rawData = [
-  { name: 'Insulation Kit', imgName: 'Spiral Wound Gasket.png' },
-  { name: 'Insulation Kit', imgName: 'gasket003.jpg' },
-  { name: 'Metal O-Ring Gasket', imgName: 'gasket004.jpg' },
-  { name: 'Gasket Item 2', imgName: 'gasket005.jpg' },
-  { name: 'Gasket Item 2', imgName: 'gasket006.jpg' },
-  { name: 'Gasket Item 2', imgName: 'gasket003.jpg' },
-  { name: 'Gasket Item 2', imgName: 'gasket003.jpg' },
-  { name: 'Gasket Item 2', imgName: 'gasket003.jpg' },
-  { name: 'Gasket Item 2', imgName: 'gasket003.jpg' },
-  { name: 'Gasket Item 2', imgName: 'gasket003.jpg' },
-  { name: 'Gasket Item 2', imgName: 'gasket004.jpg' },
-  { name: 'Gasket Item 2', imgName: 'gasket005.jpg' },
-  { name: 'Gasket Item 2', imgName: 'gasket006.jpg' },
-  { name: 'Spiral Wound Gasket', imgName: 'Spiral Wound Gasket.png' },
+  { name: 'InsulationKit', imgName: 'InsulationKit.png' },
+  { name: 'MetalJacketed', imgName: 'MetalJacketed.png' },
+  { name: 'MICA', imgName: 'MICA.png' },
+  { name: 'Non-asbestos', imgName: 'Non-asbestos.png' },
+  { name: 'E-Flon', imgName: 'E-Flon.png' },
+  { name: 'GraphiteTape', imgName: 'GraphiteTape.png' },
+  { name: 'Kamprofile', imgName: 'Kamprofile.png' },
+  { name: 'E-PTFE', imgName: 'E-PTFE.png' },
+  { name: 'RingTypeJoint', imgName: 'RingTypeJoint.png' },
+  { name: 'SemiconductorProduct', imgName: 'SemiconductorProduct.png' },
+  { name: 'SpiralWound', imgName: 'SpiralWound.png' },
+  { name: 'TopSeal', imgName: 'TopSeal.png' },
+  { name: 'Rubber', imgName: 'Rubber.png' },
   // ... 나머지 11개 입력
 ]
 
