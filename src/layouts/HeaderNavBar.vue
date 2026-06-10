@@ -82,6 +82,7 @@
       <div class="top_bar_right flex flex-center no-wrap col-3 col-md-3 full-height">
         <div class="search_box">
           <q-input
+            v-model="searchText"
             class="gt-xs"
             filled
             dense
@@ -182,6 +183,8 @@ import ProductDropDown from 'src/components/dropDownMenus/ProductDropDown.vue'
 import { useQuasar } from 'quasar'
 import { useRouter } from 'vue-router'
 
+const searchText = ref('') //SearchText Value
+
 const isAbout = ref(false)
 const isContact = ref(false)
 const isProduct = ref(false)
@@ -249,7 +252,7 @@ function toggleLeftDrawer() {
       width: 100%;
       display: flex;
       height: 100%;
-      padding: 5px 20px 0px 20px;
+      padding: 5px 20px 0 20px;
       letter-spacing: -0.3px;
       position: relative;
 
@@ -263,7 +266,7 @@ function toggleLeftDrawer() {
   .menu_items {
     height: 100%;
     font-size: 20px;
-    letter-spacing: -1px;
+    //letter-spacing: -1px;
     //font-weight: 600;
     color: $mainMenuColor;
     transition: all 0.4s ease-in-out;
@@ -343,7 +346,7 @@ function toggleLeftDrawer() {
   }
 
   .top_bar .logo_box {
-    padding-right: 0px;
+    padding-right: 0;
   }
 
   .main_menu {
@@ -372,7 +375,7 @@ function toggleLeftDrawer() {
     }
     .top_bar_right {
       justify-content: end;
-      padding-right: 0px;
+      padding-right: 0;
     }
   }
 }
