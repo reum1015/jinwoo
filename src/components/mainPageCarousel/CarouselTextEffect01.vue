@@ -25,10 +25,11 @@ onMounted(() => {
   let split = SplitText.create(".con_01",{
     type: "chars,words,lines",
   })
-    gsap.from(split.chars,{
+    gsap.from(split.words,{
       y: 200,
       autoAlpha: 1,
-      stagger: 0.2,
+      stagger: 1,
+      duration: 2,
     })
 
     let split2 = SplitText.create(".con_02",{
@@ -77,6 +78,15 @@ onUnmounted(() => {
   display: inline-block;
   transform-style: preserve-3d;
   will-change: transform;
+}
+
+.con_01{
+  text-shadow: 3px 4px 5px #000000;
+}
+
+.con_02{
+  color: white;
+  text-shadow: 4px 2px 4px #000000;
 }
 
 

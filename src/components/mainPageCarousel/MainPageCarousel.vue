@@ -11,7 +11,7 @@
     height="100vh"
     class=""
   >
-    <q-carousel-slide :name="1" img-src="~assets/imgs/carousel/bg_01.jpg">
+    <q-carousel-slide :name="1" img-src="~assets/imgs/carousel/bg_05.jpg">
       <CarouselTextEffect01></CarouselTextEffect01>
     </q-carousel-slide>
     <q-carousel-slide :name="2" img-src="~assets/imgs/carousel/bg_02.jpg">

@@ -48,12 +48,12 @@
 </template>
 
 <script setup>
-import { computed, nextTick, onMounted, onUnmounted, ref } from 'vue'
-import { useRouter } from 'vue-router'
+import {computed, nextTick, onMounted, onUnmounted, ref} from 'vue'
+import {useRouter} from 'vue-router'
 import gsap from 'gsap'
-import { Draggable } from 'gsap/Draggable'
-import { InertiaPlugin } from 'gsap/InertiaPlugin'
-import { products } from 'assets/data/products.js'
+import {Draggable} from 'gsap/Draggable'
+import {InertiaPlugin} from 'gsap/InertiaPlugin'
+import {products} from 'assets/data/products.js'
 
 gsap.registerPlugin(Draggable, InertiaPlugin)
 
@@ -281,16 +281,17 @@ onUnmounted(() => {
 .main-product {
   height: 100vh;
   width: 100%;
-  background:
-    linear-gradient(rgba(12, 14, 20, 0.48), rgba(12, 14, 20, 0.76)),
-    url('src/assets/imgs/background/celeb/cel05.jpg');
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-size: cover;
+  //background:
+  //  linear-gradient(rgba(12, 14, 20, 0.48), rgba(12, 14, 20, 0.76)),
+  //  url('src/assets/imgs/background/celeb/cel05.jpg');
+  //background-position: center center;
+  //background-repeat: no-repeat;
+  //background-size: cover;
   overflow: hidden;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  background-color: rgb(232 57 92 / 0.94);
 }
 
 .title-wrapper {
